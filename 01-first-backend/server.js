@@ -16,12 +16,9 @@ const arrTeachers = [
 // ROUTE => /teachers
 app.get("/teachers", (request, response) => {
 
-  // response => RESPONSE UNDER CONSTRUCTION
-
-  // CALL CENTER AGENT
   console.log("You want teachers, right??????")
 
-  // SEND DATA BACK => use json() method for that
+  // SEND DATA BACK => use json() method for that => will send RESPONSE to BROWSER!
   response.json( arrTeachers )
 })
 
@@ -36,16 +33,10 @@ app.get("/teachers/:id", (request, response) => {
 
   // LAST OPERATION OF EVERY CALL CENTER AGENT => SEND THE FU**** RESPONSE
   response.json( teacherFound ) // produces and sends ACTIVELY a response back to the BROWSER
-  // return teacherFound // this just exits the function
-
 })
-
-// app.get("/students", (request, response) => { // CONTROLLER
-// })   
 
 // SERVER => PORT 5000 => http://localhost:5000
 app.listen( 5000, () => {
   console.log("API has started successfully on PORT 5000, buddhy")
-}) // HIGHER ORDER FUNCTION => functions that get functions or callbacks as parameters
+}) // => HIGHER ORDER FUNCTION => functions that get functions or callbacks as parameters
 
-// REACT => pages => page components (Orders.jsx) => ROUTE 

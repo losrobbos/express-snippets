@@ -1,6 +1,7 @@
 // import express from 'express' // ES 6 modules
 const express = require("express")   // CommonJS
 const app = express() // generates me an API (instance)
+const cors = require("cors")
 
 // FAKE DATABASE
 const arrTeachers = [
@@ -20,6 +21,7 @@ const arrTeachers = [
 // request.body will now be available in our routes for further processing...
 app.use( express.json() )
 
+app.use( cors() ) // allow access to API from OUTSIDE (=fetch)
 
 // DEFINING CALL CENTER NUMBERS + AGENTS (=> ROUTES)
 

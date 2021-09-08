@@ -1,0 +1,68 @@
+* { box-sizing: border-box; }
+
+.App {
+  text-align: center;
+  background-color: #282c34;
+  color: purple;
+}
+
+h1 {
+  margin-top: 0;
+  padding-top: 1rem;
+  color: orange;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.card {
+  width: 300px;
+  height: 120px;
+  border-radius: 15px;
+  color: #282c34;
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  background: white;
+  border: 3px solid rgba(0, 0, 0, 0.5);
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5); 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50px 30px;
+  margin-bottom: 20px;
+}
+
+.card .card-image {
+  border-radius: 50%;
+}
+
+.card-body {
+  text-align: center;
+  flex: 1;
+}
+
+.teachers-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+button {
+  padding: 10px;
+  color: #282c34;
+  background: orange;
+  border-radius: 10px;
+}

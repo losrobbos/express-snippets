@@ -1,0 +1,17 @@
+[
+  {
+    "_id": "u1",
+    "username": "Wasabis",
+    "address": {
+      "_id": "a1",
+      "streetNr": "Wasabis street 15",
+      "city": "Berlin",
+      "country": "Wasabistan"
+    }
+  },
+  {
+    "_id": "u2",
+    "username": "Losrobbos"
+  }
+]
+

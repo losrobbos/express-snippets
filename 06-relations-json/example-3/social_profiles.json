@@ -1,0 +1,12 @@
+[
+  {
+    "_id": "sp1",
+    "network": "instagram",
+    "link": "http://instagram/wasabis"
+  },
+  {
+    "_id": "sp2",
+    "network": "twitter",
+    "link": "http://twitter/wasabis"
+  }
+]

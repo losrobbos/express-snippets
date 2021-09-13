@@ -1,0 +1,39 @@
+[
+  {
+    "_id": "t1",
+    "text": "Trim that beard",
+    "status": false,
+    "userId": "u2"
+  },
+  {
+    "_id": "t2",
+    "text": "Teach some relations",
+    "status": false,
+    "userId": "u1"
+  },
+  {
+    "_id": "t3",
+    "text": "Get the next ginger kurkuma shot",
+    "status": false,
+    "userId": "u2"
+  },
+  {
+    "_id": "t4",
+    "text": "Show some frontend fetches later...",
+    "status": true,
+    "userId": "u2"
+  },
+  {
+    "_id": "t5",
+    "text": "Do some record store continued...",
+    "status": false,
+    "userId": "u1"
+  },
+  {
+    "_id": "t6",
+    "text": "Do some more relations",
+    "status": false,
+    "userId": "u1"
+  }
+
+]

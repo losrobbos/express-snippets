@@ -14,6 +14,16 @@ app.get("/todos", async (req, res) => {
   res.json( todos )
 })
 
+app.get("/todos/:id", async (req, res) => {
+  // POPULATE => used to get parent & related data in ONE go! 
+  //=> advantage: just one fetch call from frontend needed
+  const todo = await Todo.findById( req.params.id )
+    .populate("userId") // => look up that userId from users collection and replace ID by user document
+
+  // result will have userId replaced by user object => userId: { _id: 1234, name: "XYZ" }
+  res.json( todo )
+})
+
 // Frontend wants to get LIST of users
 app.get("/users", async (req, res) => {
   const users = await User.find()
@@ -54,7 +64,13 @@ app.get("/seed", async (req, res) => {
 
   const users = [
     { name: "Wasabis" },
-    { name: "Losrobbos" },
+    { name: "Losrobbos", 
+      contactInfo: { 
+        email: "losrobbos@edu.com",
+        phoneNr: "+49123456789",
+        linkedin: "https://linkedin.com/robertristock"
+      } 
+    },
   ]
 
   // Create users FIRST so we got some users with IDs

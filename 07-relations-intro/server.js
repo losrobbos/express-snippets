@@ -14,6 +14,7 @@ app.get("/todos", async (req, res) => {
   res.json( todos )
 })
 
+// Frontend wants to get LIST of users
 app.get("/users", async (req, res) => {
   const users = await User.find()
   res.json( users )
@@ -21,15 +22,22 @@ app.get("/users", async (req, res) => {
 
 // Challenge: How to get user specific todos??????????
 
+// Grab just single user for maybe frontend profile
 app.get("/users/:id", async (req, res) => {
   const user = await User.findById( req.params.id )
   res.json( user )
 })
 
+
+// Grab all user related data => todos
 app.get("/users/:id/todos", async (req, res) => {
 
-  // TODO: grab todos of a specific user
+  const { id } = req.params // id => string
 
+  // QUERY => .find() => findOne() => findById() 
+  const userTodos = await Todo.find({ userId: id }) // search RELATED data
+
+  res.json( userTodos )
 
 })
 

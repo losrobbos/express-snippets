@@ -30,8 +30,6 @@ app.get("/users", async (req, res) => {
   res.json( users )
 })
 
-// Challenge: How to get user specific todos??????????
-
 // Grab just single user for maybe frontend profile
 app.get("/users/:id", async (req, res) => {
   const user = await User.findById( req.params.id )
@@ -53,9 +51,9 @@ app.get("/users/:id/todos", async (req, res) => {
 
 
 // seed in some data => always wipe out old data first!
-  // just performed during DEVELOPMENT!
-  // typically done after schema changes!
   // get some initial data for our routes
+  // typically just performed during DEVELOPMENT! (to create some fake data)
+  // typically done after each (breaking) schema change!
 app.get("/seed", async (req, res) => {
 
   // DELETE all current data

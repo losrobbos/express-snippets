@@ -20,6 +20,9 @@ function App() {
     }
   }
 
+  // fetch => for ALL sorts of grabbing data (json, html, files)
+  // axios => specific for JSON apis => stringify under hood, content type
+
   const login = async () => {
     try {
       const response = await axios.get('/login')

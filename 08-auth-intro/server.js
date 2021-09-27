@@ -1,10 +1,12 @@
 import express from 'express'
 import cors from "cors"
+import cookieParser from 'cookie-parser'
 
 const app = express();
 
 // REGISTER MIDDLEWARE
 app.use( express.json() ) // parse incoming bodies => req.body
+app.use( cookieParser() ) // parse incoming cookies => req.cookies
 
 // ALLOW FRONTENDs ON OTHER PORT TO CONNECT TO US + SENDING COOKIES ALONG 
 app.use( cors() )
@@ -15,23 +17,42 @@ app.get('/', (req, res) => {
 });
 
 app.get('/cookies', (req, res) => {
-  res.json({ message: "Show some cookies here..." })
+  res.json( { cookies: req.cookies } )
 })
 
 // indentify user
 // create / issue a token
 app.get('/login', (req, res) => {
+  
   let userFound = { _id: "12345", username: 'losrobbos' } 
-  res.json(userFound)
+
+  let token = "someHolyTicket"
+
+  // prepare a cookie and send it back to fronend
+  const sessionTimeInSecs = 1000*60*3 // => 60 seconds session
+  res.cookie("token", token, { maxAge: sessionTimeInSecs, httpOnly: true } ) // attach the ticket to a cookie in the response
+
+  res.json( userFound )
+
 })
+
+// create security guard which will protect confidential routes
+const authenticate = (req, res, next) => {
+
+  if(!req.cookies.token) {
+    // throw new Error("You dont have a token!")
+    return next( new Error("You do not have a token! Get outta herrreeee!") )
+  }
+
+  next() // forward user to desired destination
+}
+
+// => /secret => authenticate (=security guard) => controller
 
 // should just be accessible by authenticated users
-app.get('/secret', (req, res) => {
+app.get('/secret', authenticate, (req, res) => {
   res.json({ message: "You got the holy data!" })
 })
-
-// TODO: create security guard which will protect confidential routes
-
 
 // GENERAL ERROR HANDLER
 app.use((err, req, res, next) => {

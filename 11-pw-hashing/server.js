@@ -27,12 +27,12 @@ app.post("/signup", async (req, res, next) => {
 app.post("/login", async (req, res, next) => {
 
   const {email, password} = req.body // password: hello123
-  const foundUserInDb = await User.findOne({ email })
+  const foundUser = await User.findOne({ email })
 
   // a record by ID: findById
   // filter for ONE record by other criteria => findOne
 
-  if(!foundUserInDb) {
+  if(!foundUser) {
     return next(new Error("User does not exist"))
   }
 
@@ -42,13 +42,13 @@ app.post("/login", async (req, res, next) => {
 
   // hello123
   // bcrypt => hello123 => hash => 12234565 => 12234565 => LOGIN!
-  const loginSuccessful = bcrypt.compareSync( password, foundUserInDb.password )
+  const loginSuccessful = bcrypt.compareSync( password, foundUser.password )
 
   if(!loginSuccessful) {
     return next( new Error("Passwords don't match, freak") )
   }
  
-  res.json( foundUserInDb ) // null
+  res.json( foundUser ) 
 })
 
 // GENERAL ERROR HANDLER

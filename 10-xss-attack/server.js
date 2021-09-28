@@ -1,5 +1,6 @@
 import express from 'express'
 import cookieParser from 'cookie-parser'
+import { body } from 'express-validator'
 
 const app = express();
 
@@ -43,7 +44,10 @@ app.get('/products/html', (req, res, next) => {
 })
 
 // XSS attack (Cross Site Scripting) goes here...
-app.post('/products', ( req, res, next ) => {
+app.post('/products', [
+  body("name").escape(), // => convert all HTML tags to HTML entities
+  body("price").escape()
+] ,  ( req, res, next ) => {
 
   const productNew = { 
     type: req.body.type, 

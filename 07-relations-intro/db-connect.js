@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
 
-const strConn = "mongodb://localhost/todos_db_fbw48"
+const strConn = "mongodb://localhost/my_todos_db"
 
 mongoose.connect(strConn, {
   useNewUrlParser: true, 

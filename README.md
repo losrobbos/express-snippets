@@ -10,6 +10,7 @@ These snippets cover:
 - Database Schema & Model
 - Making calls to database from API routes
 - Full CRUD routes (Create, Read, Update, Delete items in database)
+- Relationships between data (e.g. a user can have multiple todo items)
 - Authentication using JWT Tokens
 - Password Hashing on Signup & Login
 - Example of an XSS attack against an API that does not validate incoming data

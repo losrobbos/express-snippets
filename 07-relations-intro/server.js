@@ -1,8 +1,16 @@
-import './db-connect.js'
+import { connectDb } from './db-connect.js'
 import express from 'express'
+import dotenv from 'dotenv'
 import cors from 'cors'
 import Todo from './models/Todo.js'
 import User from './models/User.js'
+
+// load evironment / config
+const env = dotenv.config()
+console.log("Loaded Config:", env)
+
+// connect to database after config / MONGO_URI is available....
+connectDb()
 
 const app = express()
 
@@ -46,7 +54,6 @@ app.get("/users/:id/todos", async (req, res) => {
   const userTodos = await Todo.find({ userId: id }) // search RELATED data
 
   res.json( userTodos )
-
 })
 
 

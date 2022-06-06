@@ -1,0 +1,23 @@
+@API_URL = http://localhost:5000
+
+### Seed (=> create some Users & Todos) 
+GET {{API_URL}}/seed
+
+### Todos
+GET {{API_URL}}/todos
+
+### Users
+GET {{API_URL}}/users
+
+### Get Todos of ONE user
+# replace ID below by a real user ID from your DB
+# => e.g. call /users route to get some user ID) 
+@USER_ID = 629de2f36c333d3be4ca206f
+GET {{API_URL}}/users/{{USER_ID}}/todos 
+
+
+### Get Details of single Todo (including user info)
+# replace ID below by a real todo ID from your DB
+# => call /todos route to get some todo ID
+@TODO_ID = 629de2f36c333d3be4ca2075
+GET {{API_URL}}/todos/{{TODO_ID}}
